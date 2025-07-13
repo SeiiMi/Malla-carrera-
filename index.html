@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malla Interactiva - Ingeniería Comercial UFRO</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .malla {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 10px;
+      overflow-x: auto;
+    }
+    .nivel {
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .nivel h2 {
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #34495e;
+    }
+    .ramo {
+      display: block;
+      margin: 6px auto;
+      padding: 8px 6px;
+      border-radius: 8px;
+      border: none;
+      font-size: 13px;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.3s;
+    }
+    .pendiente { background-color: #bdc3c7; color: #fff; }
+    .aprobado { background-color: #27ae60; color: #fff; }
+    .cursando { background-color: #2980b9; color: #fff; }
+  </style>
+</head>
+<body>
+  <h1>Malla Interactiva - Ingeniería Comercial UFRO</h1>
+  <div class="malla">
+    <!-- NIVEL 1 -->
+    <div class="nivel">
+      <h2>Nivel 1</h2>
+      <button class="ramo pendiente" onclick="marcarAprobado(this)">Fundamentos de Matemática</button>
+      <button class="ramo pendiente" onclick="marcarAprobado(this)">Álgebra</button>
+      <button class="ramo pendiente" onclick="marcarAprobado(this)">Introducción a la Microeconomía</button>
+    </div>
+
+    <!-- NIVEL 2 -->
+    <div class="nivel">
+      <h2>Nivel 2</h2>
+      <button class="ramo pendiente" onclick="marcarAprobado(this)">Cálculo I</button>
+      <button class="ramo pendiente" onclick="marcarAprobado(this)">Aspectos Jurídicos de la Empresa</button>
+      <button class="ramo pendiente" onclick="marcarAprobado(this)">Contabilidad I</button>
+    </div>
+
+    <!-- NIVEL 3 -->
+    <div class="nivel">
+      <h2>Nivel 3</h2>
+      <button class="ramo pendiente" onclick="marcarAprobado(this)">Cálculo II</button>
+      <button class="ramo pendiente" onclick="marcarAprobado(this)">Microeconomía</button>
+      <button class="ramo pendiente" onclick="marcarAprobado(this)">Contabilidad II</button>
+    </div>
+
+    <!-- NIVEL 4 al 10 (placeholder con ramos ficticios) -->
+    <div class="nivel"><h2>Nivel 4</h2><button class="ramo pendiente" onclick="marcarAprobado(this)">Macroeconomía</button></div>
+    <div class="nivel"><h2>Nivel 5</h2><button class="ramo pendiente" onclick="marcarAprobado(this)">Inferencia Estadística</button></div>
+    <div class="nivel"><h2>Nivel 6</h2><button class="ramo pendiente" onclick="marcarAprobado(this)">Econometría</button></div>
+    <div class="nivel"><h2>Nivel 7</h2><button class="ramo pendiente" onclick="marcarAprobado(this)">Finanzas</button></div>
+    <div class="nivel"><h2>Nivel 8</h2><button class="ramo pendiente" onclick="marcarAprobado(this)">Gestión Estratégica</button></div>
+    <div class="nivel"><h2>Nivel 9</h2><button class="ramo pendiente" onclick="marcarAprobado(this)">Electivo Profesional 1</button></div>
+    <div class="nivel"><h2>Nivel 10</h2><button class="ramo pendiente" onclick="marcarAprobado(this)">Actividad de Titulación</button></div>
+  </div>
+
+  <script>
+    function marcarAprobado(boton) {
+      if (boton.classList.contains('pendiente')) {
+        boton.classList.remove('pendiente');
+        boton.classList.add('aprobado');
+      } else if (boton.classList.contains('aprobado')) {
+        boton.classList.remove('aprobado');
+        boton.classList.add('cursando');
+      } else {
+        boton.classList.remove('cursando');
+        boton.classList.add('pendiente');
+      }
+    }
+  </script>
+</body>
+</html>
